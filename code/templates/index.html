@@ -1,0 +1,303 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
+        <meta name="description" content="" />
+        <meta name="author" content="" />
+        <title>全國癌症發生分析</title>
+        <link rel="icon" type="image/x-icon" href="../assets/img/favicon.ico" />
+        <!-- Font Awesome icons (free version)-->
+        <script src="https://use.fontawesome.com/releases/v6.1.0/js/all.js" crossorigin="anonymous"></script>
+        <!-- Google fonts-->
+        <link href="https://fonts.googleapis.com/css?family=Saira+Extra+Condensed:500,700" rel="stylesheet" type="text/css" />
+        <link href="https://fonts.googleapis.com/css?family=Muli:400,400i,800,800i" rel="stylesheet" type="text/css" />
+        <!-- Core theme CSS (includes Bootstrap)-->
+        <link href="../static/styles.css" rel="stylesheet" />
+        <!-- Plotly -->
+        <script src="https://cdn.plot.ly/plotly-latest.min.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/d3/3.5.6/d3.min.js"></script>
+		<!-- Altair -->
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+        <script src="https://cdn.jsdelivr.net/npm/vega-tooltip@0.16.0/build/vega-tooltip.min.js"></script>
+        <script src="https://d3js.org/d3.v3.min.js"></script>
+		<script type="text/javascript" src="https://cdn.jsdelivr.net/npm//vega@5"></script>
+		<script type="text/javascript" src="https://cdn.jsdelivr.net/npm//vega-lite@4.17.0"></script>
+		<script type="text/javascript" src="https://cdn.jsdelivr.net/npm//vega-embed@6"></script>
+        <script src="https://vega.github.io/datalib/datalib.min.js"></script>
+    </head>
+    <body id="page-top">
+        <!-- Navigation-->
+        <nav class="navbar navbar-expand-lg navbar-dark bg-primary fixed-top" id="sideNav">
+            <a class="navbar-brand js-scroll-trigger" href="#page-top">
+                <span class="d-block d-lg-none">Cancer Analysis</span>
+            </a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation"><span class="navbar-toggler-icon"></span></button>
+            <div class="collapse navbar-collapse" id="navbarResponsive">
+                <ul class="navbar-nav">
+                    <!-- <li class="nav-item"><a class="nav-link js-scroll-trigger" href="#about">about</a></li> -->
+                    <li class="nav-item"><a class="nav-link js-scroll-trigger" href="#pic1">每年各地區癌症發生數量</a></li>
+					<li class="nav-item"><a class="nav-link js-scroll-trigger" href="#pic12">2019年人口數v.s癌症發生數</a></li>
+                    <li class="nav-item"><a class="nav-link js-scroll-trigger" href="#pic2">每年各類別癌症發生數量</a></li>
+                    <li class="nav-item"><a class="nav-link js-scroll-trigger" href="#pic8">每年各癌症發生率變化</a></li>
+                    <li class="nav-item"><a class="nav-link js-scroll-trigger" href="#pic4">各縣市癌症的平均年齡</a></li>
+					<li class="nav-item"><a class="nav-link js-scroll-trigger" href="#pic11">癌症發生年齡中位數分布</a></li>
+                    <li class="nav-item"><a class="nav-link js-scroll-trigger" href="#pic7">空污對比癌症發生率</a></li>
+					<li class="nav-item"><a class="nav-link js-scroll-trigger" href="#pic5">各縣市who v.s 台灣發生率</a></li>
+                    <li class="nav-item"><a class="nav-link js-scroll-trigger" href="#pic9">每年發生癌症數-台灣發生率 vs WHO2000年齡標準化發生率</a></li>
+                    <li class="nav-item"><a class="nav-link js-scroll-trigger" href="#pic3">2019年男女癌症前五名</a></li>
+					<li class="nav-item"><a class="nav-link js-scroll-trigger" href="#pic6">歷年各癌症發生數前五縣市</a></li>
+					<li class="nav-item"><a class="nav-link js-scroll-trigger" href="#pic10">發生數前十名的癌症種類</a></li>
+                    <!-- <li class="nav-item"><a class="nav-link js-scroll-trigger" href="#Reference">Refernce</a></li> -->
+                </ul>
+            </div>
+        </nav>
+        <!-- Page Content-->
+        <div class="container-fluid p-0">
+            <!-- About-->
+            <section class="resume-section" id="about">
+                <div class="resume-section-content">
+                    <h1 class="mb-0">
+                        Cancer
+                        <span class="text-primary">Analysis</span>
+                    </h1>
+                    <p class="lead mb-5">A107222035 / A107222028</p>
+                </div>
+            </section>
+            <hr class="m-0" />
+            <!-- P1-->
+            <section class="resume-section" id="pic1">
+                <div class="resume-section-content">
+                    <h4 class="mb-5">每年各地癌症發生數量</h4>
+                    <div class="d-flex flex-column flex-md-row justify-content-between mb-5" id="p1">
+                        <script>
+                            var graphs = {{plot1 | safe}};
+                            Plotly.plot('p1',graphs,{});
+                        </script>
+                    </div>                
+                </div>
+            </section>
+            <hr class="m-0" />
+			<!-- P12-->
+            <section class="resume-section" id="pic12">
+                <div class="resume-section-content">
+                    <h4 class="mb-5">2019年人口數v.s癌症發生數</h4>
+                    <div class="d-flex flex-column flex-md-row justify-content-between mb-5" id="p12">
+                        <script>
+                            var graphs = {{plot12 | safe}};
+                            Plotly.plot('p12',graphs,{});
+                        </script>
+                    </div>                
+                </div>
+            </section>
+            <hr class="m-0" />
+            <!-- p2-->
+            <section class="resume-section" id="pic2">
+                <div class="resume-section-content">
+                    <h4 class="mb-5">每年各類癌症發生數量</h4>
+                    <div class="d-flex flex-column flex-md-row justify-content-between mb-5" id="p2">
+                            <script>
+                                var graphs = {{plot2 | safe}};
+                                Plotly.plot('p2',graphs,{});
+                            </script>
+                    </div>
+                </div>
+            </section>
+            <hr class="m-0" />
+            <!-- p3-->
+            <section class="resume-section" id="pic8">
+                <div class="resume-section-content">
+                    <h4 class="mb-5">每年各癌症發生率變化</h4>
+                    <div class="d-flex flex-column flex-md-row justify-content-between mb-5" id="p8">
+                        <script>
+                            var graphs = {{plot8 | safe}};
+                            Plotly.plot('p8',graphs,{});
+                        </script>
+                    </div>
+                </div>
+            </section>
+            <hr class="m-0" />
+            <!-- p4-->
+            <section class="resume-section" id="pic4">
+                <div class="resume-section-content">
+                    <h4 class="mb-5">各縣市癌症的平均年齡</h4>
+                    <div class="d-flex flex-column flex-md-row justify-content-between mb-5" id="p4">
+                        <script>
+                            var graphs = {{plot4 | safe}};
+                            Plotly.plot('p4',graphs,{});
+                        </script>
+                     </div>
+                </div>
+            </section>
+            <hr class="m-0" />
+			<!-- p11-->
+            <section class="resume-section" id="pic11">
+                <div class="resume-section-content">
+                    <h4 class="mb-5">癌症發生年齡中位數分布</h4>
+                    <div class="d-flex flex-column flex-md-row justify-content-between mb-5" id="p11">
+                        <script>
+                            var graphs = {{plot11 | safe}};
+                            Plotly.plot('p11',graphs,{});
+                        </script>
+                     </div>
+                </div>
+            </section>
+            <hr class="m-0" />
+            <!-- p5-->
+            <section class="resume-section" id="pic7">
+                <div class="resume-section-content">
+                    <h4 class="mb-5">空污對比癌症發生率</h4>
+                    <div class="d-flex flex-column flex-md-row justify-content-between mb-5" id="p7"></div> 
+                    <!-- Placeholder for the tooltip -->
+                    <div id="vis-tooltip" class="vg-tooltip"></div>
+                    <!-- Render Charts -->
+                    
+                    <script type="text/javascript">
+                    function parse(url, div) {
+                        // alert(url)
+                        var opt = { mode: "vega-lite",
+                        renderer: "svg",
+                        actions: { export: true, source: false, editor: false }
+                        };
+                        vegaEmbed("#" + div, url, opt, function (error, result) {
+                        vegaTooltip.vegaLite(result.view, url);
+                    });
+                    }
+                    //Parse your Json variable here
+                    parse({{ plot7 | safe }}, "p7")
+                    </script>
+                                  
+                </div>
+            </section>
+			<!-- p6-->
+            <section class="resume-section" id="pic5">
+                <div class="resume-section-content">
+                    <h4 class="mb-5">各縣市who v.s 台灣發生率</h4>
+                    <div class="d-flex flex-column flex-md-row justify-content-between mb-5" id="p5">
+                        <script>
+                            var graphs = {{plot5 | safe}};
+                            Plotly.plot('p5',graphs,{});
+                        </script>
+                    </div>
+                </div>
+            </section>
+			<!-- p7-->
+            <section class="resume-section" id="pic9">
+                <div class="resume-section-content">
+                    <h4 class="mb-5">每年發生癌症數-台灣發生率 vs WHO2000年齡標準化發生率</h4>                   
+                    <div class="d-flex flex-column flex-md-row justify-content-between mb-5" id="p9">
+						<script>
+                            var graphs = {{plot9 | safe}};
+                            Plotly.plot('p9',graphs,{});
+                        </script>
+                </div>
+                </div>
+            </section>
+			<!-- p8-->
+            <section class="resume-section" id="pic3">
+                <div class="resume-section-content">
+                    <h4 class="mb-5">2019年男女癌症前五名</h4>
+                    <div class="d-flex flex-column flex-md-row justify-content-between mb-5" id="p3">
+                        <script>
+                            var graphs = {{plot3 | safe}};
+                            Plotly.plot('p3',graphs,{});
+                        </script>
+                </div>
+                </div>
+            </section>
+			<!-- p9-->
+            <section class="resume-section" id="pic6">
+                <div class="resume-section-content">
+                    <h4 class="mb-5">歷年各癌症發生數前五縣市</h4>
+                    <div class="d-flex flex-column flex-md-row justify-content-between mb-5" id="p6">
+                        <script>
+                            var graphs = {{plot6 | safe}};
+                            Plotly.plot('p6',graphs,{});
+                        </script>
+                    </div>
+                </div>
+            </section>
+			<!-- p10-->
+            <section class="resume-section" id="pic10">
+                <div class="resume-section-content">
+                    <h4 class="mb-5">發生數前十名的癌症種類</h4>
+                    <div class="d-flex flex-column flex-md-row justify-content-between mb-5" id="p10">
+                        <script>
+                            var graphs = {{plot10| safe}};
+                            Plotly.plot('p10',graphs,{});
+                        </script>
+                    </div>
+                </div>
+            </section>
+
+            <section class="resume-section" id="Reference">
+                <div class="resume-section-content">
+                    <h4 class="mb-5">Reference</h4>
+                    <div class="subheading mb-3">資料集</div>
+                    <ul class="fa-ul mb-0">
+                        <li>
+                            <span class="fa-li"><i class="fas fa-check"></i></span>
+                            癌症 : https://data.gov.tw/dataset/6399
+                        </li>
+                        <li>
+                            <span class="fa-li"><i class="fas fa-check"></i></span>
+                            空汙 : https://www.epa.gov.tw/Page/672FA2BDDEAA22C7/71fedbd8-9829-49e0-b02b-0addb5bd470a
+                        </li>
+                        <li>
+                            <span class="fa-li"><i class="fas fa-check"></i></span>
+                            台灣地圖 : https://data.gov.tw/dataset/7441
+                        </li>
+                    </ul>
+                    <div class="subheading mb-3">模板</div>
+                    <ul class="fa-ul mb-0">
+                        <li>
+                            <span class="fa-li"><i class="fas fa-check"></i></span>
+                            WEB : https://github.com/StartBootstrap/startbootstrap-resume
+                        </li>
+                        <li>
+                            <span class="fa-li"><i class="fas fa-check"></i></span>
+                            PPT : https://www.canva.com/templates/EAEVCY-IFHg-blue-and-black-clean-un-style-civil-society-sdg-progress-report/
+                        </li>
+						
+                    </ul>
+					<div class="subheading mb-3">參考資料</div>
+                    <ul class="fa-ul mb-0">
+                        <li>
+                            <span class="fa-li"><i class="fas fa-check"></i></span>
+                            Plot : https://plotly.com/python
+                        </li>
+                        <li>
+                            <span class="fa-li"><i class="fas fa-check"></i></span>
+                            Flask : https://blog.heptanalytics.com/flask-plotly-dashboard/
+                        </li>
+                        <li>
+                            <span class="fa-li"><i class="fas fa-check"></i></span>
+                            Plotly on Flask : https://clay-atlas.com/blog/2020/02/21/python-flask-chinese-notes-0-build-simple-page/
+                        </li>
+						<li>
+                            <span class="fa-li"><i class="fas fa-check"></i></span>
+                            Code : https://viml.nchc.org.tw/archive_blog_681/?CLASS_ID=1&SUB_ID=1&PAPER_ID=681
+                        </li>
+						<li>
+                            <span class="fa-li"><i class="fas fa-check"></i></span>
+                            Altair : https://stackoverflow.com/questions/60994128/how-to-click-on-square-of-heatmap-to-filter-linked-bar-chart-altair
+                        </li>
+                    </ul>
+
+                </div>
+            </section>
+
+
+
+        </div> <!-- end of page don't move -->
+
+
+        <!-- Bootstrap core JS-->
+        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"></script>
+        <!-- Core theme JS-->
+        <script src="../js/scripts.js"></script>
+        <!--Plotly-->
+        <script src="{{ url_for('static', filename='js/jquery-1.11.1.min.js') }}"></script>
+        <script src="{{ url_for('static', filename='js/plots.js') }}"></script>
+    </body>
+</html>
